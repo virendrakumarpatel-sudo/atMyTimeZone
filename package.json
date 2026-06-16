@@ -1,0 +1,17 @@
+{
+  "name": "at-my-timezone",
+  "version": "1.0.0",
+  "description": "Slack bot that converts times in messages to each channel member's timezone",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "npx nodemon index.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "@slack/bolt": "^4.1.0",
+    "chrono-node": "^2.7.7",
+    "moment-timezone": "^0.5.46",
+    "dotenv": "^16.4.7"
+  }
+}
