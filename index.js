@@ -96,7 +96,7 @@ app.command('/mytimezone', async ({ command, ack, client }) => {
 
   await client.chat.postMessage({
     channel: command.channel_id,
-    text: message,
+    text: `<@${command.user_id}>: ${message}`,
   });
 });
 
