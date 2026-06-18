@@ -1,4 +1,6 @@
-require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 const express = require('express');
 const { App, ExpressReceiver } = require('@slack/bolt');
 const chrono = require('chrono-node');
