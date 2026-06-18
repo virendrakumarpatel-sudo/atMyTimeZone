@@ -1,107 +1,36 @@
-# @MyTimeZone Slack Bot
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-A Slack bot that automatically converts times in your messages so every viewer sees the time in their own timezone.
+## Getting Started
 
-## How It Works
-
-When you type:
-```
-/mytimezone let's meet at 4pm tomorrow
-```
-
-The bot posts a message where each person sees the time in **their own timezone**:
-- Amsterdam viewer sees: "let's meet at tomorrow at 4:00 PM"
-- India viewer sees: "let's meet at tomorrow at 7:30 PM"
-
-Uses Slack's `<!date^>` formatting which renders per-viewer based on their device timezone.
-
-## Features
-
-- **Slash command** (`/mytimezone`) — posts a message with auto-converting times
-- **@mention** (`@MyTimeZone`) — reply with converted times
-- **Multiple times** — handles "call at 2pm and again at 5pm"
-- **Natural language** — "tomorrow", "this Friday", "Monday at 10am", "in 30 minutes"
-- **Future-biased** — "Sunday" means next Sunday, not last Sunday
-- **Message preserved** — only time strings are replaced, rest stays intact
-
-## Setup
-
-### 1. Create a Slack App
-
-1. Go to [api.slack.com/apps](https://api.slack.com/apps) → **Create New App** → **From scratch**
-2. Name it `MyTimeZone`, pick your workspace
-
-### 2. Configure Bot Permissions
-
-Go to **OAuth & Permissions** → Add these Bot Token Scopes:
-- `app_mentions:read`
-- `chat:write`
-- `commands`
-- `users:read`
-
-### 3. Create Slash Command
-
-Go to **Slash Commands** → **Create New Command**:
-- Command: `/mytimezone`
-- Request URL: `https://YOUR-URL/`
-- Description: Post a time that shows in everyone's timezone
-- Usage Hint: `let's meet at 4pm tomorrow`
-
-### 4. Enable Events
-
-Go to **Event Subscriptions** → Enable → Request URL: `https://YOUR-URL/`
-
-Subscribe to bot events:
-- `app_mention`
-
-### 5. Install to Workspace
-
-Go to **Install App** → Install. Copy the **Bot User OAuth Token**.
-
-Also copy the **Signing Secret** from **Basic Information**.
-
-### 6. Run Locally
+First, run the development server:
 
 ```bash
-cp .env.example .env
-# Fill in SLACK_BOT_TOKEN and SLACK_SIGNING_SECRET
-
-npm install
-npm start
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-### 7. Expose with ngrok (for local dev)
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```bash
-ngrok http 3000
-```
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-Use the ngrok HTTPS URL as your Request URL in Slack app settings.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Usage
+## Learn More
 
-```
-/mytimezone let's meet at 4pm tomorrow
-/mytimezone retro at 11am and then lunch at 12:30pm
-/mytimezone pizza party on Friday at 6pm, don't miss it!
-/mytimezone sprint planning Monday at 10am, bring your coffee
-```
+To learn more about Next.js, take a look at the following resources:
 
-Or mention the bot in any channel:
-```
-@MyTimeZone standup at 9:30am tomorrow
-```
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## Testing
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-```bash
-npm test
-```
+## Deploy on Vercel
 
-## Environment Variables
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-| Variable | Description |
-|----------|-------------|
-| `SLACK_BOT_TOKEN` | Bot User OAuth Token (starts with `xoxb-`) |
-| `SLACK_SIGNING_SECRET` | From Slack app Basic Information page |
-| `PORT` | Server port (default: 3000) |
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
