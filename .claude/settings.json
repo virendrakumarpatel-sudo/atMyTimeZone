@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm -rf /Users/virpatel/Documents/atMyTimeZone/node_modules && npm install 2>&1)",
+      "Read(//Users/virpatel/Documents/**)",
+      "Bash(npx create-next-app@latest atMyTimeZone-new --js --no-tailwind --no-eslint --no-src-dir --app --no-turbopack --import-alias \"@/*\")"
+    ],
+    "additionalDirectories": [
+      "/Users/virpatel/Documents/atMyTimeZone/node_modules"
+    ]
+  }
+}
