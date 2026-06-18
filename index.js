@@ -120,8 +120,14 @@ app.event('app_mention', async ({ event, client }) => {
   }
 });
 
-const port = process.env.PORT || 3000;
-(async () => {
-  await app.start(port);
-  console.log(`⚡ @MyTimeZone bot running on port ${port}`);
-})();
+// For local development: start the server
+if (process.env.NODE_ENV !== 'production') {
+  const port = process.env.PORT || 3000;
+  (async () => {
+    await app.start(port);
+    console.log(`⚡ @MyTimeZone bot running on port ${port}`);
+  })();
+}
+
+// Export for Vercel serverless
+module.exports = receiver.app;
